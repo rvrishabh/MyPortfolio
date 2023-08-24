@@ -1,28 +1,22 @@
 import {
   backend,
-  carrent,
-  creator,
   css,
   docker,
-  figma,
+  drum,
   git,
   html,
   javascript,
-  jobit,
-  meta,
-  mobile,
   mongodb,
   nodejs,
   reactjs,
   redux,
-  shopify,
-  starbucks,
+  simon,
   tailwind,
-  tesla,
   threejs,
   tripguide,
   typescript,
   web,
+  work,
 } from "../assets";
 
 export const navLinks = [
@@ -42,21 +36,21 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
+    title: "Front-End Developer",
     icon: web,
-  },
-  {
-    title: "React Native Developer",
-    icon: mobile,
   },
   {
     title: "Backend Developer",
     icon: backend,
   },
-  {
-    title: "Content Creator",
-    icon: creator,
-  },
+  // {
+  //   title: "React Native Developer",
+  //   icon: mobile,
+  // },
+  // {
+  //   title: "Content Creator",
+  //   icon: creator,
+  // },
 ];
 
 const technologies = [
@@ -104,10 +98,10 @@ const technologies = [
     name: "git",
     icon: git,
   },
-  {
-    name: "figma",
-    icon: figma,
-  },
+  // {
+  //   name: "figma",
+  //   icon: figma,
+  // },
   {
     name: "docker",
     icon: docker,
@@ -116,54 +110,17 @@ const technologies = [
 
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    title: "SDE 1 (Full Stack Developer)",
+    company_name: "Janaspandana Software Solutions",
+    icon: work,
+    iconBg: "#fff",
+    date: "September 2022 - Current",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
+      "UX/UI Development with API integration of Admin Panel, Clinician Web Application in a client based project related to Doctor-Patient application using REACT.JS, Material UI.",
+      "Developed a fully responsive Patient Web Application with features like Video calling, Booking Session for Clinician and many more using NEXT.Js, Material UI, Agora.",
+      "Developing and maintaining web applications using React.js, Next.js, Nest.js, MongoDb and other related technologies.",
+      "Making fully responsive landing page UI for all browsers and devices using NEXT.JS, REACT.JS, Material UI.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
@@ -198,46 +155,45 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Simon Game",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "It is a fun memory game developed by using HTML, CSS, JavaScript",
     tags: [
       {
-        name: "react",
+        name: "HTML",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "CSS",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "JavaScript",
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: simon,
+    source_code_link: "https://github.com/rvrishabh/Simon-Game",
   },
   {
-    name: "Job IT",
-    description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+    name: "Drum Kit",
+    description: "It is fun Drum-Kit",
     tags: [
       {
-        name: "react",
+        name: "HTML",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "CSS",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "JavaScript",
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
+    image: drum,
+    source_code_link: "https://github.com/rvrishabh/My-Drum-kit",
   },
   {
     name: "Trip Guide",

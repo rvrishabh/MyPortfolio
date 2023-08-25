@@ -61,7 +61,12 @@ export const zoomIn = ({ delay, duration }: any) => {
   };
 };
 
-export const slideIn = ({ direction, type, delay, duration }: any) => {
+export const slideIn = (
+  direction: any,
+  type: any,
+  delay: any,
+  duration: any
+) => {
   return {
     hidden: {
       x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,

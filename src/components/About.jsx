@@ -20,13 +20,12 @@ const About = () => {
       >
         I'm a skilled software developer with experience in TypeScript and
         JavaScript, and expertise in frameworks like React.js, Next.js, Nest.js,
-        Node.js, and Three.js. I'm a quick learner and collaborate closely with
-        clients to create efficient, scalable, and user-friendly solutions that
-        solve real-world problems. Let's work together to bring your ideas to
-        life!
+        Node.js. I'm a quick learner and collaborate closely with clients to
+        create efficient, scalable, and user-friendly solutions that solve
+        real-world problems. Let's work together to bring your ideas to life!
       </motion.p>
 
-      <div className="mt-20 flex gap-[80px]">
+      <div className="mt-20 flex flex-wrap gap-[80px]">
         {services?.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
@@ -37,7 +36,7 @@ const About = () => {
 
 const ServiceCard = ({ index, title, icon }) => {
   return (
-    <Tilt className="xs:w-[550px] w-full">
+    <Tilt className="xs:w-[500px] w-full">
       <motion.div
         variants={fadeIn("right", "spring", index * 0.5, 0.75)}
         className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"

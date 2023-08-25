@@ -13,7 +13,6 @@ import {
   simon,
   tailwind,
   threejs,
-  tripguide,
   typescript,
   web,
   work,
@@ -157,7 +156,7 @@ const projects = [
   {
     name: "Simon Game",
     description:
-      "It is a fun memory game developed by using HTML, CSS, JavaScript",
+      "The Simon game is the exciting electronic game of lights and sounds in which players must repeat random sequences of lights by pressing the colored pads in the correct order. It's fast-paced play, with lights and sounds that can challenge you. Experience the fun as you repeat the patterns and advance to higher levels.",
     tags: [
       {
         name: "HTML",
@@ -174,10 +173,12 @@ const projects = [
     ],
     image: simon,
     source_code_link: "https://github.com/rvrishabh/Simon-Game",
+    live_link: "https://rvrishabh.github.io/Simon-Game/",
   },
   {
     name: "Drum Kit",
-    description: "It is fun Drum-Kit",
+    description:
+      "We’ve got a number of keys on the webpage that represents different drums in a typical drum set and when you click on any of those buttons then you’ll get the corresponding sound of the drum. And in addition you can also use the keys on the keyboard to have a sound effect.",
     tags: [
       {
         name: "HTML",
@@ -194,28 +195,30 @@ const projects = [
     ],
     image: drum,
     source_code_link: "https://github.com/rvrishabh/My-Drum-kit",
+    live_link: "https://rvrishabh.github.io/My-Drum-kit/",
   },
-  {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-    tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
-  },
+  // {
+  //   name: "ToDo-List",
+  //   description:
+  //     "a list of tasks you need to complete or things that you want to do. Most typically, they're organised in order of priority. ",
+  //   tags: [
+  //     {
+  //       name: "React Js",
+  //       color: "blue-text-gradient",
+  //     },
+  //     {
+  //       name: "CSS",
+  //       color: "green-text-gradient",
+  //     },
+  //     {
+  //       name: "JavaScript",
+  //       color: "pink-text-gradient",
+  //     },
+  //   ],
+  //   image: todo,
+  //   source_code_link: "https://github.com/rvrishabh/Todo-item",
+  //   live_link: "https://todo-list-byrishabh.netlify.app/",
+  // },
 ];
 
 export { services, technologies, experiences, testimonials, projects };

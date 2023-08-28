@@ -15,7 +15,7 @@ const Ball = (props) => {
     <Float
       speed={2} // Animation speed, defaults to 1
       rotationIntensity={1} // XYZ rotation intensity, defaults to 1
-      floatIntensity={2} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+      floatIntensity={1} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
     >
       <ambientLight intensity={1} />
       <directionalLight position={[0, 0, 0.05]} />

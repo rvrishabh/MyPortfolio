@@ -65,7 +65,7 @@ const Contact = () => {
   return (
     <div className="l:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
       <motion.div
-        className="flex-[0.75] p-8 rounded-2xl bg-tertiary rounded-xl xs:w-[550px] w-full bg-black-100"
+        className="flex-[0.75] p-8 rounded-2xl bg-tertiary rounded-xl xs:w-[600px] w-full bg-black-100"
         variants={slideIn("left", "tween", 0.2, 1)}
       >
         <p className={styles.sectionSubText}>Get in Touch</p>

@@ -19,15 +19,15 @@ const Hero = () => {
             Hi, I'm <span className="text-[#915EFF]">Rishabh</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop 3D visuals, user <br className="sm:block hidden" />
-            interfaces and web applications
+            I develop User Interfaces and <br className="sm:block hidden" />
+            Web applications
           </p>
         </div>
       </div>
 
       <ComputersCanvas />
 
-      <div className=" absolute xs:bottom-0 bottom-20 w-full flex justify-center items-center">
+      <div className="absolute xs:bottom-10 bottom-20 w-full flex justify-center items-center">
         <a href="#about">
           <div className="w-[35px] h-[64px] border-4 rounded-3xl border-secondary flex justify-center p-2 items-start">
             <motion.div
@@ -44,6 +44,8 @@ const Hero = () => {
           </div>
         </a>
       </div>
+
+      <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center"></div>
     </section>
   );
 };

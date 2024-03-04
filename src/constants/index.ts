@@ -125,7 +125,7 @@ const experiences = [
     company_name: "Janaspandana Software Solutions",
     icon: work,
     iconBg: "#fff",
-    date: "September 2022 - Current",
+    date: "September 2022 - December 2023",
     points: [
       "UX/UI Development with API integration of Admin Panel, Clinician Web Application in a client based project related to Doctor-Patient application using REACT.JS, Material UI.",
       "Developed a fully responsive Patient Web Application with features like Video calling, Booking Session for Clinician and many more using NEXT.Js, Material UI, Agora.",

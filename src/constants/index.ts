@@ -109,7 +109,19 @@ const technologies = [
 
 const experiences = [
   {
-    title: "SDE 1 (Full Stack Developer)",
+    title: "Frontend Engineer",
+    company_name: "Figrfast Systems Pvt Ltd (Figr)",
+    icon: work,
+    iconBg: "#fff",
+    date: "January 2024 - March 2024",
+    points: [
+      "Created PROKIT, a comprehensive resource hub for design needs, leveraging Next.js, Tailwind, and Shadcn for seamless integration",
+      "Engineered IDENTITY-PLUGIN, a Figma Plugin simplifying style customization and generation for designers.",
+      "Developed Figr's responsive Landing Page utilizing React.js, GSAP , and Tailwind CSS.",
+    ],
+  },
+  {
+    title: "SDE 1",
     company_name: "Janaspandana Software Solutions",
     icon: work,
     iconBg: "#fff",

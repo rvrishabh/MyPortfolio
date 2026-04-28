@@ -18,11 +18,11 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
-        I'm a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React.js, Next.js, Nest.js,
-        Node.js. I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
+        Founding Engineer with 3.5+ years shipping high-stakes fintech and Web3
+        products from 0 to 1. I build complex, compliance-heavy systems across
+        React.js, Next.js, TypeScript, and Nest.js, with deep experience in
+        multi-chain blockchain products across EVM and XRPL. I focus on turning
+        difficult workflows into fast, intuitive products that scale.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-[80px]">

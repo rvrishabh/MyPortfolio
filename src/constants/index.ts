@@ -1,10 +1,7 @@
 import {
   backend,
-  css,
   docker,
-  drum,
   git,
-  html,
   javascript,
   mongodb,
   nodejs,
@@ -12,7 +9,6 @@ import {
   redux,
   simon,
   tailwind,
-  threejs,
   typescript,
   web,
   work,
@@ -35,32 +31,16 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Front-End Developer",
+    title: "Founding Engineer",
     icon: web,
   },
   {
-    title: "Backend Developer",
+    title: "Senior Product Engineer",
     icon: backend,
   },
-  // {
-  //   title: "React Native Developer",
-  //   icon: mobile,
-  // },
-  // {
-  //   title: "Content Creator",
-  //   icon: creator,
-  // },
 ];
 
 const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
   {
     name: "JavaScript",
     icon: javascript,
@@ -70,11 +50,11 @@ const technologies = [
     icon: typescript,
   },
   {
-    name: "React JS",
+    name: "React.js",
     icon: reactjs,
   },
   {
-    name: "Redux Toolkit",
+    name: "Redux",
     icon: redux,
   },
   {
@@ -82,7 +62,7 @@ const technologies = [
     icon: tailwind,
   },
   {
-    name: "Node JS",
+    name: "Node.js",
     icon: nodejs,
   },
   {
@@ -90,49 +70,64 @@ const technologies = [
     icon: mongodb,
   },
   {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
+    name: "Git",
     icon: git,
   },
-  // {
-  //   name: "figma",
-  //   icon: figma,
-  // },
   {
-    name: "docker",
+    name: "Docker",
     icon: docker,
   },
 ];
 
 const experiences = [
   {
+    title: "Founding Engineer",
+    company_name: "Trend Digital",
+    icon: work,
+    iconBg: "#fff",
+    date: "April 2025 - Present",
+    points: [
+      "Built a crypto payment gateway supporting BTC, ETH, USDT, and USDC with real-time transaction tracking, QR-based checkout, and webhook handling.",
+      "Engineered crypto-to-fiat instant settlement flows to reduce volatility risk for merchants.",
+      "Developed Merchant, Affiliate, and Admin platforms with KYC onboarding, payouts, analytics, RBAC, and audit logging.",
+      "Delivered 80+ reusable components in a Turborepo monorepo with type-safe validations and scalable architecture.",
+    ],
+  },
+  {
+    title: "Senior Product Engineer",
+    company_name: "Zoniqx (RWA Tokenization Platform)",
+    icon: work,
+    iconBg: "#fff",
+    date: "June 2024 - April 2025",
+    points: [
+      "Integrated XRPL (non-EVM) via Palisade Wallet alongside EVM multi-chain context using wagmi and RainbowKit.",
+      "Built an investor dashboard for portfolio tracking, token holdings, real-time performance, and transaction history.",
+      "Engineered complete asset lifecycle flows from creation to transfer with smart contract interactions across EVM and XRPL.",
+      "Implemented async on-chain/off-chain sync patterns and KYC/AML-compliant onboarding flows.",
+    ],
+  },
+  {
     title: "Frontend Engineer",
-    company_name: "Figrfast Systems Pvt Ltd (Figr)",
+    company_name: "Figrfast Pvt. Ltd. (Figr)",
     icon: work,
     iconBg: "#fff",
     date: "January 2024 - March 2024",
     points: [
-      "Created PROKIT, a comprehensive resource hub for design needs, leveraging Next.js, Tailwind, and Shadcn for seamless integration",
-      "Engineered IDENTITY-PLUGIN, a Figma Plugin simplifying style customization and generation for designers.",
-      "Developed Figr's responsive Landing Page utilizing React.js, GSAP , and Tailwind CSS.",
+      "Built PROKIT design resource hub with Next.js, Tailwind, and ShadcnUI.",
+      "Engineered the IDENTITY-PLUGIN for Figma style customization and generation.",
+      "Developed animated landing experiences with React.js and GSAP.",
     ],
   },
   {
     title: "SDE 1",
-    company_name: "Janaspandana Software Solutions",
+    company_name: "JSS",
     icon: work,
     iconBg: "#fff",
     date: "September 2022 - December 2023",
     points: [
-      "UX/UI Development with API integration of Admin Panel, Clinician Web Application in a client based project related to Doctor-Patient application using REACT.JS, Material UI.",
-      "Developed a fully responsive Patient Web Application with features like Video calling, Booking Session for Clinician and many more using NEXT.Js, Material UI, Agora.",
-      "Developing and maintaining web applications using React.js, Next.js, Nest.js, MongoDb and other related technologies.",
-      "Making fully responsive landing page UI for all browsers and devices using NEXT.JS, REACT.JS, Material UI.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Built Admin, Clinician, and Patient portals using React.js, Next.js, and Material UI.",
+      "Integrated Agora SDK for video calling and session booking.",
+      "Developed RESTful APIs with Nest.js and database integrations for production workflows.",
     ],
   },
 ];
@@ -166,71 +161,27 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Simon Game",
+    name: "TryBlink AI",
     description:
-      "The Simon game is the exciting electronic game of lights and sounds in which players must repeat random sequences of lights by pressing the colored pads in the correct order. It's fast-paced play, with lights and sounds that can challenge you. Experience the fun as you repeat the patterns and advance to higher levels.",
+      "Real-time Telegram productivity assistant with GPT-powered task extraction, smart replies, message triage, and persistent conversation memory for faster action-taking.",
     tags: [
       {
-        name: "HTML",
+        name: "React",
         color: "blue-text-gradient",
       },
       {
-        name: "CSS",
+        name: "TypeScript",
         color: "green-text-gradient",
       },
       {
-        name: "JavaScript",
+        name: "AI",
         color: "pink-text-gradient",
       },
     ],
     image: simon,
-    source_code_link: "https://github.com/rvrishabh/Simon-Game",
-    live_link: "https://rvrishabh.github.io/Simon-Game/",
+    source_code_link: "https://github.com/rvrishabh",
+    live_link: "https://rishabh26-portfolio.vercel.app/",
   },
-  {
-    name: "Drum Kit",
-    description:
-      "We’ve got a number of keys on the webpage that represents different drums in a typical drum set and when you click on any of those buttons then you’ll get the corresponding sound of the drum. And in addition you can also use the keys on the keyboard to have a sound effect.",
-    tags: [
-      {
-        name: "HTML",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "CSS",
-        color: "green-text-gradient",
-      },
-      {
-        name: "JavaScript",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: drum,
-    source_code_link: "https://github.com/rvrishabh/My-Drum-kit",
-    live_link: "https://rvrishabh.github.io/My-Drum-kit/",
-  },
-  // {
-  //   name: "ToDo-List",
-  //   description:
-  //     "a list of tasks you need to complete or things that you want to do. Most typically, they're organised in order of priority. ",
-  //   tags: [
-  //     {
-  //       name: "React Js",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "CSS",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "JavaScript",
-  //       color: "pink-text-gradient",
-  //     },
-  //   ],
-  //   image: todo,
-  //   source_code_link: "https://github.com/rvrishabh/Todo-item",
-  //   live_link: "https://todo-list-byrishabh.netlify.app/",
-  // },
 ];
 
 export { services, technologies, experiences, testimonials, projects };

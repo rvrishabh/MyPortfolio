@@ -47,7 +47,7 @@ const Navbar = () => {
 
             <p className="text-[18px] font-bold">
               Rishabh &nbsp;{" "}
-              <span className="sm:block hidden">Web Developer</span>
+              <span className="sm:block hidden">Full Stack Developer</span>
             </p>
           </Link>
           <ul className="list-none hidden sm:flex flex-row gap-10">

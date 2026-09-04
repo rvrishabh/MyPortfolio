@@ -18,11 +18,14 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
-        Founding Engineer with 3.5+ years shipping high-stakes fintech and Web3
-        products from 0 to 1. I build complex, compliance-heavy systems across
-        React.js, Next.js, TypeScript, and Nest.js, with deep experience in
-        multi-chain blockchain products across EVM and XRPL. I focus on turning
-        difficult workflows into fast, intuitive products that scale.
+        Founding Engineer with 4 years shipping high-stakes fintech and Web3
+        products full-stack, web and mobile. I built a multi-app fintech
+        ecosystem at Trend Digital (OTC trading, merchant KYC, affiliate
+        payouts, React Native app) on a Turborepo monorepo, led multi-chain
+        RWA tokenization across EVM and XRPL at Zoniqx, and built and ship
+        VNV Valpro, a live property valuation platform, backend to frontend
+        on NestJS, Prisma, and React. Comfortable owning React, Next.js,
+        TypeScript, NestJS, and PostgreSQL end to end.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-[80px]">

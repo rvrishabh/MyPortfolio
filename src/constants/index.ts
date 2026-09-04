@@ -3,6 +3,7 @@ import {
   docker,
   git,
   javascript,
+  mobile,
   mongodb,
   nodejs,
   reactjs,
@@ -37,6 +38,10 @@ const services = [
   {
     title: "Senior Product Engineer",
     icon: backend,
+  },
+  {
+    title: "Full-Stack Developer",
+    icon: mobile,
   },
 ];
 
@@ -87,10 +92,22 @@ const experiences = [
     iconBg: "#fff",
     date: "April 2025 - Present",
     points: [
-      "Built a crypto payment gateway supporting BTC, ETH, USDT, and USDC with real-time transaction tracking, QR-based checkout, and webhook handling.",
-      "Engineered crypto-to-fiat instant settlement flows to reduce volatility risk for merchants.",
-      "Developed Merchant, Affiliate, and Admin platforms with KYC onboarding, payouts, analytics, RBAC, and audit logging.",
-      "Delivered 80+ reusable components in a Turborepo monorepo with type-safe validations and scalable architecture.",
+      "Built a 4-portal fintech platform (merchant, affiliate, admin, super-admin) as sole frontend owner, on a Turborepo monorepo with TanStack Router/Query, Zod, and 80+ shared components.",
+      "Engineered an OTC crypto trading module (quote generation with expiry, trade creation, balance checks, order confirmation) and a virtual IBAN banking integration (BCB Banking) for outbound payments.",
+      "Built a crypto payment gateway (BTC, ETH, USDT, USDC) with real-time tracking, QR checkout, and crypto-to-fiat instant settlement; delivered a companion React Native merchant app covering 10+ financial domains with multi-tenant auth and token-refresh session handling.",
+      "Shipped full i18n localization (6 languages) for the merchant dashboard.",
+    ],
+  },
+  {
+    title: "Full-Stack Developer (Personal Project)",
+    company_name: "VNV Valpro — Property Valuation Platform",
+    icon: work,
+    iconBg: "#fff",
+    date: "May 2026 - Present",
+    points: [
+      "Built a property valuation case-management platform end-to-end (NestJS, Fastify, Prisma, PostgreSQL), live with active users, for the family's valuation business.",
+      "Engineered a valuation calculation engine with circle-rate lookups and configurable rate registers, generating audit-ready PDF reports (Handlebars + Puppeteer).",
+      "Designed a maker-checker workflow and RBAC across institutions/branches; built the React 19 admin frontend (TanStack Router/Query) with JWT, Google OAuth, and OTP auth.",
     ],
   },
   {
@@ -160,6 +177,28 @@ const testimonials = [
 ];
 
 const projects = [
+  {
+    name: "VNV Valpro",
+    description:
+      "Live property valuation case-management platform built end-to-end for the family's valuation business: valuation calculation engine with circle-rate lookups, audit-ready PDF reports, maker-checker workflow, and RBAC across institutions/branches.",
+    tags: [
+      {
+        name: "NestJS",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Prisma",
+        color: "green-text-gradient",
+      },
+      {
+        name: "React",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: simon,
+    source_code_link: "https://github.com/rvrishabh",
+    live_link: "https://rishabh26-portfolio.vercel.app/",
+  },
   {
     name: "TryBlink AI",
     description:

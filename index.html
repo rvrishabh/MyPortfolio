@@ -1,10 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rishabh's Portfolio</title>
+    <title>Rishabh Verma — Full-stack engineer for fintech &amp; Web3</title>
+    <meta
+      name="description"
+      content="Rishabh Verma — Founding Engineer with 4 years shipping fintech and Web3 products full-stack, web and mobile. Available for freelance work."
+    />
+    <meta name="theme-color" content="#E9ECE4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0B1028" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Hanken+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Apply the saved or system theme before first paint to avoid a flash.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          if (t === "dark") document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

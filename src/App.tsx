@@ -1,39 +1,39 @@
-import { BrowserRouter } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import {
-  About,
-  Contact,
-  Experience,
-  Hero,
-  Navbar,
-  StarsCanvas,
-  Tech,
-  Works,
-} from "./components";
+import { MotionConfig } from "framer-motion";
+import { About } from "./components/About";
+import { Contact } from "./components/Contact";
+import { Experience } from "./components/Experience";
+import { Footer } from "./components/Footer";
+import { Hero } from "./components/Hero";
+import { Nav } from "./components/Nav";
+import { ScrollProgress } from "./components/ScrollProgress";
+import { SmoothScroll } from "./components/SmoothScroll";
+import { Stack } from "./components/Stack";
+import { Work } from "./components/Work";
 
-function App() {
+export default function App() {
   return (
-    <>
-      <BrowserRouter>
-        <div className="relative z-0 ">
-          <div className=" bg-hero-pattern bg-cover bg-no-repeat bg-center">
-            <Navbar />
+    <MotionConfig reducedMotion="user">
+      <SmoothScroll>
+        <div className="grain">
+          <a
+            href="#about"
+            className="sr-only z-[80] rounded-full bg-ink px-4 py-2 text-paper focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+          >
+            Skip to content
+          </a>
+          <ScrollProgress />
+          <Nav />
+          <main>
             <Hero />
-          </div>
-          <div className="relative z-0">
             <About />
+            <Stack />
             <Experience />
-            <Tech />
-            <Works />
+            <Work />
             <Contact />
-            <StarsCanvas />
-          </div>
+          </main>
+          <Footer />
         </div>
-      </BrowserRouter>
-      <ToastContainer position="top-right" />
-    </>
+      </SmoothScroll>
+    </MotionConfig>
   );
 }
-
-export default App;

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rishabh Verma — Full-Stack & Web3/Fintech Engineer</title>
+<meta name="description" content="Rishabh Verma — Founding Engineer with 4 years shipping fintech and Web3 products full-stack, web and mobile. Available for freelance work.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+<style>
+  :root{
+    --bg:#0a0e14;
+    --bg-elev:#10151f;
+    --bg-card:#131926;
+    --border:#1f2937;
+    --text:#e6edf3;
+    --text-dim:#94a3b8;
+    --text-faint:#5b6b82;
+    --accent:#5ee0c0;
+    --accent-2:#7aa2ff;
+    --radius:14px;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,14,20,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:16px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{font-weight:700;font-size:17px;letter-spacing:-0.02em;}
+  .brand span{color:var(--accent);}
+  nav.links{display:flex;gap:28px;font-size:14px;color:var(--text-dim);}
+  nav.links a:hover{color:var(--text);}
+  .nav-cta{
+    font-size:14px;font-weight:600;color:var(--bg);
+    background:var(--accent);padding:8px 16px;border-radius:8px;
+  }
+  .nav-cta:hover{opacity:0.9;}
+  .mobile-hide{display:flex;}
+  @media (max-width:640px){ .mobile-hide{display:none;} }
+
+  section{padding:88px 0;}
+  .eyebrow{
+    text-transform:uppercase;letter-spacing:0.12em;font-size:12px;
+    color:var(--accent);font-weight:700;margin-bottom:14px;
+  }
+  h1{font-size:clamp(34px,5.5vw,56px);font-weight:800;letter-spacing:-0.03em;line-height:1.08;}
+  h2{font-size:clamp(24px,3.2vw,32px);font-weight:800;letter-spacing:-0.02em;margin-bottom:10px;}
+  .section-sub{color:var(--text-dim);font-size:16px;margin-bottom:44px;max-width:640px;}
+  .gradient-text{
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+
+  /* HERO */
+  .hero{padding-top:110px;padding-bottom:80px;}
+  .hero-grid{display:grid;grid-template-columns:1.3fr 0.9fr;gap:48px;align-items:center;}
+  @media (max-width:860px){ .hero-grid{grid-template-columns:1fr;} }
+  .status-pill{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--border);background:var(--bg-elev);
+    padding:6px 14px;border-radius:999px;font-size:13px;color:var(--text-dim);
+    margin-bottom:24px;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:#3ddc97;box-shadow:0 0 8px #3ddc97;}
+  .hero p.lead{font-size:18px;color:var(--text-dim);margin-top:20px;max-width:560px;}
+  .hero-cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn{
+    padding:13px 24px;border-radius:9px;font-weight:600;font-size:14.5px;
+    display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--accent);color:#05130f;}
+  .btn-primary:hover{opacity:0.92;}
+  .btn-outline{border-color:var(--border);color:var(--text);background:var(--bg-elev);}
+  .btn-outline:hover{border-color:var(--accent);}
+  .hero-card{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:28px;
+  }
+  .hero-card h3{font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-faint);margin-bottom:18px;}
+  .stat-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;}
+  .stat-row:last-child{border-bottom:none;}
+  .stat-row .k{color:var(--text-dim);}
+  .stat-row .v{font-weight:600;}
+
+  /* ABOUT / STACK */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{color:var(--text-dim);margin-bottom:16px;}
+  .about-grid strong{color:var(--text);}
+  .stack-group{margin-bottom:22px;}
+  .stack-title{font-size:13px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-size:13px;padding:6px 12px;border-radius:7px;
+    background:var(--bg-elev);border:1px solid var(--border);color:var(--text-dim);
+  }
+
+  /* EXPERIENCE */
+  .timeline{border-left:2px solid var(--border);padding-left:28px;display:flex;flex-direction:column;gap:38px;}
+  .tl-item{position:relative;}
+  .tl-item::before{
+    content:'';position:absolute;left:-34px;top:4px;width:12px;height:12px;
+    border-radius:50%;background:var(--accent);border:3px solid var(--bg);
+    box-shadow:0 0 0 2px var(--border);
+  }
+  .tl-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:4px;}
+  .tl-role{font-size:17px;font-weight:700;}
+  .tl-company{color:var(--accent);font-weight:600;}
+  .tl-meta{font-size:13px;color:var(--text-faint);white-space:nowrap;}
+  .tl-item ul{margin-top:10px;padding-left:18px;color:var(--text-dim);font-size:14.5px;display:flex;flex-direction:column;gap:6px;}
+
+  /* PROJECTS */
+  .project-card{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:30px;margin-bottom:22px;
+  }
+  .project-card.featured{border-color:rgba(94,224,192,0.35);background:linear-gradient(145deg,rgba(94,224,192,0.06),rgba(122,162,255,0.04));}
+  .project-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+  .project-title{font-size:20px;font-weight:800;}
+  .badge{
+    font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;
+    padding:5px 10px;border-radius:6px;background:rgba(61,220,151,0.14);color:#3ddc97;
+    display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  }
+  .badge .dot{width:6px;height:6px;}
+  .project-role{font-size:13px;color:var(--text-faint);margin-bottom:14px;}
+  .project-card p.desc{color:var(--text-dim);font-size:15px;margin-bottom:16px;}
+  .project-card ul{padding-left:18px;color:var(--text-dim);font-size:14.5px;display:flex;flex-direction:column;gap:6px;margin-bottom:18px;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{font-size:12.5px;padding:5px 11px;border-radius:6px;background:var(--bg-elev);border:1px solid var(--border);color:var(--text-dim);}
+
+  /* CONTACT */
+  .contact-card{
+    background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
+    padding:56px 40px;text-align:center;
+  }
+  .contact-card h2{margin-bottom:14px;}
+  .contact-card p{color:var(--text-dim);max-width:520px;margin:0 auto 32px;}
+  .contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+
+  footer{border-top:1px solid var(--border);padding:32px 0;}
+  .footer-inner{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+    color:var(--text-faint);font-size:13px;
+  }
+  .footer-inner a{color:var(--text-dim);}
+  .footer-inner a:hover{color:var(--accent);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Rishabh<span>.</span>dev</div>
+    <nav class="links mobile-hide">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="mailto:rishabhofficial.verma@gmail.com">Hire Me</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="status-pill"><span class="dot"></span> Available for freelance & contract work</div>
+        <h1>Full-stack engineer for <span class="gradient-text">fintech & Web3</span> products that ship.</h1>
+        <p class="lead">I'm Rishabh Verma — a Founding Engineer with 4 years building high-stakes fintech and Web3 products end to end: React, Next.js, NestJS and PostgreSQL, from OTC trading engines to multi-chain tokenization to live SaaS platforms.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="mailto:rishabhofficial.verma@gmail.com">Start a project →</a>
+          <a class="btn btn-outline" href="https://github.com/rvrishabh" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-outline" href="https://linkedin.com/in/rishabh-verma-b66714203" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>At a glance</h3>
+        <div class="stat-row"><span class="k">Experience</span><span class="v">4 years</span></div>
+        <div class="stat-row"><span class="k">Focus</span><span class="v">Fintech · Web3</span></div>
+        <div class="stat-row"><span class="k">Core stack</span><span class="v">React · NestJS · TS</span></div>
+        <div class="stat-row"><span class="k">Based in</span><span class="v">Noida, India</span></div>
+        <div class="stat-row"><span class="k">Works with</span><span class="v">EU · UK · MENA teams</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h2>From civil engineering to shipping fintech infrastructure</h2>
+    <div class="about-grid" style="margin-top:32px;">
+      <div>
+        <p>I'm a full-stack and Web3-frontend engineer who switched into software from a civil engineering background. Over the last 4 years I've shipped a <strong>multi-app fintech ecosystem</strong> at Trend Digital — OTC crypto trading, merchant KYC, affiliate payouts and a React Native app — on a Turborepo monorepo with 80+ reusable components.</p>
+        <p>At <strong>Zoniqx</strong> I led multi-chain RWA tokenization across EVM and XRPL, and outside my full-time work I've independently built and shipped <strong>VNV Valupro</strong>, a live property valuation platform, backend to frontend.</p>
+        <p>I'm comfortable owning <strong>React, Next.js, TypeScript, NestJS and PostgreSQL</strong> end to end — from database schema and API design to pixel-level frontend polish — and I work well with distributed, remote-first teams across European, UK and Middle Eastern timezones.</p>
+      </div>
+      <div>
+        <div class="stack-group">
+          <div class="stack-title">Languages / Frameworks</div>
+          <div class="chips">
+            <span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">React.js</span>
+            <span class="chip">Next.js</span><span class="chip">Node.js</span><span class="chip">NestJS</span>
+            <span class="chip">Redux</span><span class="chip">Zustand</span><span class="chip">Tailwind CSS</span>
+            <span class="chip">ShadcnUI</span><span class="chip">React Native</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-title">Backend / Data</div>
+          <div class="chips">
+            <span class="chip">PostgreSQL</span><span class="chip">Prisma</span><span class="chip">MongoDB</span>
+            <span class="chip">Redis</span><span class="chip">REST APIs</span><span class="chip">Fastify</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-title">Web3</div>
+          <div class="chips">
+            <span class="chip">Blockchain Integration</span><span class="chip">Wagmi</span><span class="chip">Viem</span>
+            <span class="chip">RainbowKit</span><span class="chip">EVM</span><span class="chip">XRPL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="background:var(--bg-elev);">
+  <div class="wrap">
+    <div class="eyebrow">Experience</div>
+    <h2>Where I've built</h2>
+    <p class="section-sub">Four years across fintech infrastructure, Web3 tokenization and healthtech — always owning the product end to end.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-head">
+          <div><span class="tl-role">Founding Engineer</span> · <span class="tl-company">Trend Digital</span></div>
+          <div class="tl-meta">04/2025 – 09/2026 · Remote</div>
+        </div>
+        <ul>
+          <li>Sole frontend owner of a 4-portal fintech platform (merchant, affiliate, admin, super-admin) on a Turborepo monorepo with TanStack Router/Query, Zod and 80+ shared components, consuming tenant-isolated REST APIs with JWT/cookie auth and refresh-token rotation.</li>
+          <li>Engineered an OTC crypto trading module (quote generation with expiry, trade creation, balance checks, order confirmation) and a virtual IBAN banking integration (BCB Banking) for outbound payments.</li>
+          <li>Built a crypto payment gateway (BTC, ETH, USDT, USDC) with real-time tracking, QR checkout, and crypto → fiat instant settlement; delivered a companion React Native merchant app covering 10+ financial domains with multi-tenant auth and token-refresh session handling.</li>
+          <li>Implemented granular RBAC (permission-gated UI across 4 portals) and full i18n localization across 6 languages for the merchant dashboard.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <div><span class="tl-role">Senior Product Engineer</span> · <span class="tl-company">Zoniqx — RWA Tokenization Platform</span></div>
+          <div class="tl-meta">06/2024 – 04/2025 · Remote</div>
+        </div>
+        <ul>
+          <li>Integrated XRPL (non-EVM) via Palisade Wallet alongside EVM multi-chain Web3 context (Wagmi, RainbowKit) for seamless wallet switching.</li>
+          <li>Built the Investor Dashboard — portfolio tracking, token holdings, real-time asset performance and full transaction history.</li>
+          <li>Engineered the end-to-end asset lifecycle (creation → issuance → allocation → transfer) with smart contract interactions across EVM & XRPL; solved blockchain latency with async UI updates and on-chain/off-chain data sync, plus KYC/AML-compliant onboarding.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <div><span class="tl-role">Frontend Engineer</span> · <span class="tl-company">Figr (Figrfast Pvt. Ltd.)</span></div>
+          <div class="tl-meta">01/2024 – 03/2024 · Bangalore, India</div>
+        </div>
+        <ul>
+          <li>Built the PROKIT design resource hub with Next.js, Tailwind and ShadcnUI.</li>
+          <li>Engineered the IDENTITY-PLUGIN Figma plugin for style customization and generation.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <div><span class="tl-role">SDE 1</span> · <span class="tl-company">Janaspandana Software Solutions</span></div>
+          <div class="tl-meta">09/2022 – 12/2023 · Hyderabad, India</div>
+        </div>
+        <ul>
+          <li>Built Admin, Clinician & Patient portals with React.js, Next.js and Material UI.</li>
+          <li>Integrated the Agora SDK for video calling and developed RESTful APIs with NestJS, Prisma and MySQL.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">Freelance & Independent Work</div>
+    <h2>Selected projects</h2>
+    <p class="section-sub">Products I've built and shipped independently, outside my full-time roles.</p>
+
+    <div class="project-card featured">
+      <div class="project-top">
+        <div class="project-title">VNV Valupro — Property Valuation Platform</div>
+        <span class="badge"><span class="dot"></span>Live</span>
+      </div>
+      <div class="project-role">Freelance / Independent build · Full-stack (backend to frontend)</div>
+      <p class="desc">A live property valuation platform for a bank valuation business, built solo across a web admin panel and a React Native mobile app on NestJS/Fastify, Prisma and PostgreSQL.</p>
+      <ul>
+        <li>Designed a database-driven RBAC system and a maker-checker approval workflow for valuation sign-off.</li>
+        <li>Built dual mobile authentication with email OTP and Google OAuth.</li>
+        <li>Engineered a valuation calculation engine with circle-rate lookups and a self-learning rate system.</li>
+        <li>Generated bank-formatted PDF valuation reports using Handlebars and Puppeteer.</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">NestJS</span><span class="tag">Fastify</span><span class="tag">Prisma</span>
+        <span class="tag">PostgreSQL</span><span class="tag">React Native</span><span class="tag">React</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education" style="background:var(--bg-elev);padding-top:60px;padding-bottom:60px;">
+  <div class="wrap">
+    <div class="eyebrow">Education</div>
+    <h2 style="font-size:20px;">Bachelor of Technology, Civil Engineering</h2>
+    <p style="color:var(--text-dim);font-size:14.5px;">Meerut Institute of Engineering and Technology · 06/2016 – 06/2020 · Meerut, India</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div class="eyebrow" style="justify-content:center;display:flex;">Contact</div>
+      <h2>Let's build something together</h2>
+      <p>Available for freelance and contract engagements in fintech and Web3 — full-stack builds, frontend architecture, or backend systems. Best overlap with European, UK and Middle Eastern timezones.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:rishabhofficial.verma@gmail.com">rishabhofficial.verma@gmail.com</a>
+        <a class="btn btn-outline" href="tel:+919760022095">+91 97600 22095</a>
+        <a class="btn btn-outline" href="https://linkedin.com/in/rishabh-verma-b66714203" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-outline" href="https://github.com/rvrishabh" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-outline" href="https://x.com/rvrishabh26" target="_blank" rel="noopener">X / Twitter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Rishabh Verma. Based in Noida, India.</span>
+    <span><a href="mailto:rishabhofficial.verma@gmail.com">rishabhofficial.verma@gmail.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

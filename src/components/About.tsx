@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { about, education, highlights } from "../data";
 
 function Word({ children, progress, range }: { children: string; progress: MotionValue<number>; range: [number, number] }) {
-  const opacity = useTransform(progress, range, [0.14, 1]);
+  const opacity = useTransform(progress, range, [0.2, 1]);
   return (
     <motion.span style={{ opacity }} className="mr-[0.25em] inline-block">
       {children}
@@ -44,7 +44,7 @@ export function About() {
         <h2 className="mb-10 text-sm text-ink-soft">About me</h2>
         <p
           ref={ref}
-          className="max-w-[22ch] font-display text-[clamp(1.9rem,4.6vw,3.7rem)] leading-[1.12] tracking-[-0.015em] sm:max-w-[26ch] lg:max-w-none"
+          className="max-w-[30ch] text-[clamp(1.55rem,3.4vw,2.75rem)] font-medium leading-[1.28] tracking-[-0.022em] lg:max-w-[34ch]"
         >
           {words.map((w, i) => (
             <Word key={i} progress={scrollYProgress} range={[i / words.length, (i + 1) / words.length]}>

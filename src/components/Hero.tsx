@@ -31,19 +31,6 @@ export function Hero() {
 
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:gap-10">
         <motion.div style={reduce ? undefined : { y: textY, opacity: fade }}>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease }}
-            className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-rule bg-surface/60 px-4 py-1.5 text-sm text-ink-soft backdrop-blur"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
-            Taking on freelance and contract work
-          </motion.p>
-
           <h1 className="font-display text-[clamp(2.6rem,7.2vw,5.6rem)] font-medium leading-[0.98] tracking-[-0.025em]">
             {lines.map((line, i) => (
               <span key={line} className="block overflow-hidden pb-[0.08em]">

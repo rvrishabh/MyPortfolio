@@ -74,7 +74,7 @@ export function Stack() {
       <div className="mx-auto mt-16 grid max-w-6xl gap-10 px-4 sm:px-6 md:grid-cols-3">
         {stack.map((g) => (
           <div key={g.group}>
-            <h3 className="mb-4 font-display text-2xl italic">{g.group}</h3>
+            <h3 className="mb-4 text-lg font-semibold tracking-[-0.01em]">{g.group}</h3>
             <ul className="flex flex-wrap gap-2">
               {g.items.map((it) => (
                 <li key={it} className="rounded-full border border-rule px-3 py-1.5 text-sm text-ink-soft">

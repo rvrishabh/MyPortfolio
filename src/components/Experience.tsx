@@ -29,8 +29,8 @@ function Entry({ role, index }: { role: Role; index: number }) {
         <span className="mx-2 text-ink/20">/</span>
         {role.where}
       </p>
-      <h3 className="mt-3 font-display text-[clamp(1.7rem,3.4vw,2.6rem)] leading-tight">
-        {role.title} <span className="italic text-accent">at {role.company}</span>
+      <h3 className="mt-3 text-[clamp(1.4rem,2.6vw,2rem)] font-semibold leading-tight tracking-[-0.02em]">
+        {role.title} <span className="font-medium text-accent">at {role.company}</span>
       </h3>
       {role.context && <p className="mt-1 text-ink-soft">{role.context}</p>}
 

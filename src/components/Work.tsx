@@ -1,6 +1,6 @@
 import { animate, motion, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { project } from "../data";
+import { projects, type Project } from "../data";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const inr = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 });
@@ -95,7 +95,68 @@ function ValuationMock() {
   );
 }
 
-export function Work() {
+/** A Telegram inbox being sorted, with a reply streaming in. */
+function TriageMock() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-20%" });
+  const reduce = useReducedMotion();
+  const reply = "Thanks Aman, Thursday 4pm works. I'll send the invite and the updated deck before then.";
+  const [shown, setShown] = useState(reduce ? reply.length : 0);
+
+  useEffect(() => {
+    if (!inView || reduce) return;
+    const c = animate(0, reply.length, { duration: 2.6, delay: 0.6, ease: "linear", onUpdate: (v) => setShown(Math.round(v)) });
+    return () => c.stop();
+  }, [inView, reduce, reply.length]);
+
+  const chats = [
+    { from: "Aman, investor", text: "Can we move the call to Thursday?", tag: "Reply now", strong: true },
+    { from: "Design team", text: "New mocks are in the shared folder", tag: "Later", strong: false },
+    { from: "Crypto signals group", text: "100x gem launching tonight", tag: "Muted", strong: false },
+  ];
+
+  return (
+    <div ref={ref} className="rounded-2xl border border-rule bg-paper p-5 shadow-[0_30px_60px_-30px_rgb(var(--ink)/0.4)] sm:p-6">
+      <div className="mb-4 flex items-center justify-between">
+        <span className="text-sm font-semibold">Inbox, sorted</span>
+        <span className="text-xs text-ink-faint">GPT-4o</span>
+      </div>
+      <ul className="divide-y divide-rule rounded-xl border border-rule">
+        {chats.map((c, i) => (
+          <motion.li
+            key={c.from}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 + i * 0.12, ease }}
+            className="flex items-center justify-between gap-3 px-3.5 py-3 text-sm"
+          >
+            <span className="min-w-0">
+              <span className="block font-medium">{c.from}</span>
+              <span className="block truncate text-ink-faint">{c.text}</span>
+            </span>
+            <span
+              className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                c.strong ? "bg-accent text-paper" : "bg-ink/[0.06] text-ink-soft"
+              }`}
+            >
+              {c.tag}
+            </span>
+          </motion.li>
+        ))}
+      </ul>
+      <div className="mt-4 rounded-xl bg-ink/[0.05] px-4 py-3 text-sm">
+        <p className="text-xs text-ink-faint">Suggested reply to Aman</p>
+        <p className="mt-1 min-h-[2.8em] leading-snug">
+          {reply.slice(0, shown)}
+          {shown < reply.length && <span className="ml-0.5 inline-block h-[1em] w-[2px] translate-y-[2px] animate-pulse bg-accent" />}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function ProjectCard({ project }: { project: Project }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "start 0.25"] });
@@ -104,65 +165,76 @@ export function Work() {
   const mockY = useTransform(scrollYProgress, [0, 1], [120, 0]);
 
   return (
+    <motion.article
+      ref={ref}
+      style={reduce ? undefined : { scale, borderRadius: radius }}
+      className="relative overflow-hidden rounded-[28px] border border-rule bg-surface"
+    >
+      <div className="grid gap-12 p-6 sm:p-10 lg:grid-cols-[1fr_1.05fr] lg:p-14">
+        <div className="flex flex-col">
+          <div className="flex items-center gap-3">
+            {project.live && (
+              <span className="inline-flex items-center gap-2 rounded-full bg-accent/15 px-3 py-1 text-sm font-medium text-accent">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+                </span>
+                Live
+              </span>
+            )}
+            <span className="text-sm text-ink-faint">{project.kind}</span>
+          </div>
+
+          <h3 className="mt-6 font-display text-[clamp(2.6rem,5.5vw,4.4rem)] font-medium italic leading-[0.95] tracking-[-0.02em]">
+            {project.name}
+          </h3>
+          <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink-soft">{project.summary}</p>
+
+          <ul className="mt-8 border-t border-rule">
+            {project.points.map((p, i) => (
+              <motion.li
+                key={p}
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.08, ease }}
+                className="border-b border-rule py-3.5 text-[15px] text-ink-soft"
+              >
+                {p}
+              </motion.li>
+            ))}
+          </ul>
+
+          <ul className="mt-8 flex flex-wrap gap-2" aria-label={`${project.name} stack`}>
+            {project.stack.map((s) => (
+              <li key={s} className="rounded-full border border-rule px-3 py-1 text-xs font-medium text-ink-soft">
+                {s}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <motion.div style={reduce ? undefined : { y: mockY }} className="self-center">
+          {project.mock === "valuation" ? <ValuationMock /> : <TriageMock />}
+        </motion.div>
+      </div>
+    </motion.article>
+  );
+}
+
+export function Work() {
+  return (
     <section id="work" className="relative py-28 md:py-40">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <h2 className="font-display text-[clamp(2.4rem,5vw,4rem)] leading-[1] tracking-[-0.02em]">Independent work</h2>
           <p className="max-w-[36ch] text-ink-soft">Products I've designed, built and shipped on my own, outside full-time roles.</p>
         </div>
-
-        <motion.article
-          ref={ref}
-          style={reduce ? undefined : { scale, borderRadius: radius }}
-          className="relative overflow-hidden border border-rule bg-surface"
-        >
-          <div className="grid gap-12 p-6 sm:p-10 lg:grid-cols-[1fr_1.05fr] lg:p-14">
-            <div className="flex flex-col">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex items-center gap-2 rounded-full bg-accent/15 px-3 py-1 text-sm font-medium text-accent">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-                  </span>
-                  Live
-                </span>
-                <span className="text-sm text-ink-faint">Freelance, full-stack</span>
-              </div>
-
-              <h3 className="mt-6 font-display text-[clamp(2.6rem,5.5vw,4.4rem)] font-medium italic leading-[0.95] tracking-[-0.02em]">
-                {project.name}
-              </h3>
-              <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink-soft">{project.summary}</p>
-
-              <ul className="mt-8 space-y-0 border-t border-rule">
-                {project.points.map((p, i) => (
-                  <motion.li
-                    key={p}
-                    initial={{ opacity: 0, x: -16 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: i * 0.08, ease }}
-                    className="border-b border-rule py-3.5 text-[15px] text-ink-soft"
-                  >
-                    {p}
-                  </motion.li>
-                ))}
-              </ul>
-
-              <ul className="mt-8 flex flex-wrap gap-2" aria-label="Stack">
-                {project.stack.map((s) => (
-                  <li key={s} className="rounded-full border border-rule px-3 py-1 text-xs font-medium text-ink-soft">
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <motion.div style={reduce ? undefined : { y: mockY }} className="self-center">
-              <ValuationMock />
-            </motion.div>
-          </div>
-        </motion.article>
+        <div className="space-y-10">
+          {projects.map((p) => (
+            <ProjectCard key={p.name} project={p} />
+          ))}
+        </div>
       </div>
     </section>
   );

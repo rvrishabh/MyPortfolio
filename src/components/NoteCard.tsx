@@ -11,7 +11,7 @@ import { profile } from "../data";
 import { rosette, waveBand } from "../lib/guilloche";
 import { Portrait } from "./Portrait";
 
-const microprint = "FULL-STACK ENGINEERING · FINTECH · WEB3 · REACT · NEXT.JS · NESTJS · POSTGRESQL · ";
+const microprint = "FULL-STACK ENGINEERING · WEB · MOBILE · REACT · NEXT.JS · NESTJS · POSTGRESQL · ";
 
 /**
  * The hero object: a holographic banknote carrying Rishabh's portrait.
@@ -120,7 +120,7 @@ export function NoteCard() {
           <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,rgb(255_255_255/0.35)_0_1px,transparent_1px_4px)]" />
         </motion.div>
 
-        {/* Copy — sized in container units so it scales with the note */}
+        {/* Copy, sized in container units so it scales with the note */}
         <div className="absolute left-[7%] top-[15%] max-w-[44%]">
           <p className="text-[2cqw] tracking-[0.08em] text-ink-soft">Legal tender for</p>
           <p className="whitespace-nowrap font-display text-[4.6cqw] italic leading-tight">Shipped products</p>

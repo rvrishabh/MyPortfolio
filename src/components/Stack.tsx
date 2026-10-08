@@ -45,9 +45,7 @@ function Row({ items, baseVelocity }: { items: string[]; baseVelocity: number })
             <span className="px-6 font-display text-[clamp(2.5rem,7vw,6rem)] italic leading-none tracking-tight transition-colors hover:text-accent">
               {s}
             </span>
-            <svg viewBox="0 0 20 20" className="h-5 w-5 text-accent" aria-hidden="true">
-              <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="currentColor" />
-            </svg>
+            <span className="h-2 w-2 rounded-full bg-accent/70" aria-hidden="true" />
           </span>
         ))}
       </motion.div>
@@ -56,8 +54,8 @@ function Row({ items, baseVelocity }: { items: string[]; baseVelocity: number })
 }
 
 export function Stack() {
-  const all = stack.flatMap((g) => g.items);
-  const half = Math.ceil(all.length / 2);
+  const rowA = ["TypeScript", "React", "Next.js", "React Native", "TanStack", "Tailwind CSS", "Wagmi", "Viem", "XRPL"];
+  const rowB = ["NestJS", "Node.js", "PostgreSQL", "Prisma", "Redis", "Supabase", "GPT-4o", "AWS", "Docker", "Turborepo"];
   return (
     <section aria-labelledby="stack-title" className="relative overflow-hidden border-y border-rule bg-surface/50 py-20 md:py-28">
       <div className="mx-auto mb-14 max-w-6xl px-4 sm:px-6">
@@ -67,11 +65,11 @@ export function Stack() {
       </div>
 
       <div aria-hidden="true" className="space-y-2 [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
-        <Row items={all.slice(0, half)} baseVelocity={-2.2} />
-        <Row items={all.slice(half)} baseVelocity={2.2} />
+        <Row items={rowA} baseVelocity={-2.2} />
+        <Row items={rowB} baseVelocity={2.2} />
       </div>
 
-      <div className="mx-auto mt-16 grid max-w-6xl gap-10 px-4 sm:px-6 md:grid-cols-3">
+      <div className="mx-auto mt-16 grid max-w-6xl gap-10 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3">
         {stack.map((g) => (
           <div key={g.group}>
             <h3 className="mb-4 text-lg font-semibold tracking-[-0.01em]">{g.group}</h3>

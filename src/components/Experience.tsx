@@ -25,7 +25,7 @@ function Entry({ role, index }: { role: Role; index: number }) {
       </span>
 
       <p className="tabular text-sm text-ink-faint">
-        {role.start} – {role.end}
+        {role.start} to {role.end}
         <span className="mx-2 text-ink/20">/</span>
         {role.where}
       </p>
@@ -34,9 +34,9 @@ function Entry({ role, index }: { role: Role; index: number }) {
       </h3>
       {role.context && <p className="mt-1 text-ink-soft">{role.context}</p>}
 
-      <ul className="mt-6 max-w-[64ch] space-y-3 text-[15.5px] leading-relaxed text-ink-soft">
+      <ul className="mt-6 max-w-[64ch] list-outside space-y-3 pl-5 text-[15.5px] leading-relaxed text-ink-soft">
         {role.points.map((p) => (
-          <li key={p} className="relative pl-5 before:absolute before:left-0 before:top-[0.7em] before:h-px before:w-2.5 before:bg-ink/30">
+          <li key={p} className="list-disc pl-1 marker:text-ink/35">
             {p}
           </li>
         ))}
@@ -67,7 +67,7 @@ export function Experience() {
             Where I've built
           </h2>
           <p className="mt-6 max-w-[30ch] text-ink-soft">
-            Four years across fintech infrastructure, Web3 tokenization and healthtech, owning each product end to end.
+            Four years across payments, tokenization, design tools and healthtech, owning each product end to end.
           </p>
         </div>
 

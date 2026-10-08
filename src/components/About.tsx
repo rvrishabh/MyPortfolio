@@ -1,6 +1,6 @@
-import { animate, motion, MotionValue, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, MotionValue, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { about, education, highlights } from "../data";
+import { about, education, highlights, type Highlight } from "../data";
 
 function Word({ children, progress, range }: { children: string; progress: MotionValue<number>; range: [number, number] }) {
   const opacity = useTransform(progress, range, [0.2, 1]);
@@ -11,22 +11,33 @@ function Word({ children, progress, range }: { children: string; progress: Motio
   );
 }
 
-function Count({ value }: { value: string }) {
+function Count({ prefix = "", value: target, suffix = "" }: Omit<Highlight, "label">) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-15%" });
   const reduce = useReducedMotion();
-  const target = parseInt(value, 10);
-  const suffix = value.replace(/^\d+/, "");
-  const [n, setN] = useState(reduce ? target : 0);
+  // Starts at the real value so the number is never left at 0; it only counts
+  // up from 0 once the stat scrolls into view.
+  const [n, setN] = useState(target);
 
   useEffect(() => {
     if (!inView || reduce) return;
-    const c = animate(0, target, { duration: 1.6, ease: [0.22, 1, 0.36, 1], onUpdate: (v) => setN(Math.round(v)) });
-    return () => c.stop();
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / 1600);
+      setN(Math.round(target * (1 - Math.pow(1 - t, 3))));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(raf);
+      setN(target);
+    };
   }, [inView, reduce, target]);
 
   return (
     <span ref={ref} className="tabular">
+      {prefix}
       {n}
       {suffix}
     </span>
@@ -65,16 +76,31 @@ export function About() {
             >
               <dt className="sr-only">{h.label}</dt>
               <dd className="font-display text-5xl font-medium md:text-6xl">
-                <Count value={h.value} />
+                <Count prefix={h.prefix} value={h.value} suffix={h.suffix} />
               </dd>
-              <dd className="mt-2 max-w-[16ch] text-sm leading-snug text-ink-soft">{h.label}</dd>
+              <dd className="mt-2 max-w-[22ch] text-sm leading-snug text-ink-soft">{h.label}</dd>
             </motion.div>
           ))}
         </dl>
 
-        <p className="mt-10 text-sm text-ink-faint">
-          {education.degree}, {education.school}, {education.years}.
-        </p>
+        <div className="mt-12 grid gap-6 text-sm sm:grid-cols-2">
+          <div>
+            <h3 className="font-semibold">Education</h3>
+            <p className="mt-2 text-ink-soft">
+              {education.degree}, {education.school}, {education.years}
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold">Certificates</h3>
+            <ul className="mt-2 flex flex-wrap gap-2">
+              {education.certificates.map((c) => (
+                <li key={c} className="rounded-full border border-rule px-3 py-1 text-ink-soft">
+                  {c}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );

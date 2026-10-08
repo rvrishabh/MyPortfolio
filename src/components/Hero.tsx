@@ -6,7 +6,7 @@ import { NoteCard } from "./NoteCard";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const lines = ["I build fintech", "& Web3 products", "that move real money."];
+const lines = ["I build products", "from the first idea", "to production."];
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -52,8 +52,10 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.65, ease }}
             className="mt-8 max-w-[34rem] text-lg leading-relaxed text-ink-soft text-pretty"
           >
-            I'm {profile.name}, a founding engineer with {profile.yearsShipping} years building trading engines, payment
-            rails and tokenization platforms end to end — React and Next.js up front, NestJS and PostgreSQL underneath.
+            I'm {profile.name}, a full-stack product engineer with {profile.yearsShipping} years shipping web and mobile
+            products, from the Figma file to production on AWS. Lately that's meant payments, trading and tokenization
+            platforms; before that, healthtech and design tools. React and Next.js up front, NestJS and PostgreSQL
+            underneath.
           </motion.p>
 
           <motion.div
@@ -97,7 +99,7 @@ export function Hero() {
             transition={{ delay: 2.2, duration: 1 }}
             className="mt-6 hidden text-center text-sm text-ink-faint md:block"
           >
-            Move your cursor over the note — he's watching.
+            Move your cursor over the note. He's watching.
           </motion.p>
         </motion.div>
       </div>

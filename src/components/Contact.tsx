@@ -67,8 +67,8 @@ export function Contact() {
         <div className="mt-14 flex flex-col gap-12 md:flex-row md:items-center md:justify-between">
           <div className="max-w-[44ch]">
             <p className="text-lg leading-relaxed text-ink-soft">
-              I work on fintech and Web3 products: full-stack builds, frontend architecture and backend systems. My hours
-              overlap well with Europe, the UK and the Middle East.
+              I build web and mobile products of any kind: full-stack builds, frontend architecture and backend systems,
+              with deep experience in fintech and Web3. My hours overlap well with Europe, the UK and the Middle East.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">

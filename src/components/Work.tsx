@@ -95,68 +95,159 @@ function ValuationMock() {
   );
 }
 
-/** A Telegram inbox being sorted, with a reply streaming in. */
-function TriageMock() {
+/** A Hinglish voice note being transcribed, then saved as a task with a clash shifted. */
+function VoiceMock() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-20%" });
   const reduce = useReducedMotion();
-  const reply = "Thanks Aman, Thursday 4pm works. I'll send the invite and the updated deck before then.";
-  const [shown, setShown] = useState(reduce ? reply.length : 0);
+  const said = "Kal 4 baje Aman ke saath call, aur 3:30 pe deck bhej dena";
+  const [shown, setShown] = useState(reduce ? said.length : 0);
+  const done = shown >= said.length;
 
   useEffect(() => {
     if (!inView || reduce) return;
-    const c = animate(0, reply.length, { duration: 2.6, delay: 0.6, ease: "linear", onUpdate: (v) => setShown(Math.round(v)) });
+    const c = animate(0, said.length, { duration: 2.4, delay: 0.4, ease: "linear", onUpdate: (v) => setShown(Math.round(v)) });
     return () => c.stop();
-  }, [inView, reduce, reply.length]);
+  }, [inView, reduce, said.length]);
 
-  const chats = [
-    { from: "Aman, investor", text: "Can we move the call to Thursday?", tag: "Reply now", strong: true },
-    { from: "Design team", text: "New mocks are in the shared folder", tag: "Later", strong: false },
-    { from: "Crypto signals group", text: "100x gem launching tonight", tag: "Muted", strong: false },
+  const bars = [0.35, 0.7, 0.5, 0.9, 0.6, 1, 0.55, 0.8, 0.4, 0.75, 0.5, 0.3];
+  const tasks = [
+    { time: "Tomorrow, 3:30 PM", title: "Send the deck to Aman", note: "Reminder will be spoken" },
+    { time: "Tomorrow, 4:30 PM", title: "Call with Aman", note: "Moved 30 min: clashed with Design review" },
   ];
 
   return (
     <div ref={ref} className="rounded-2xl border border-rule bg-paper p-5 shadow-[0_30px_60px_-30px_rgb(var(--ink)/0.4)] sm:p-6">
       <div className="mb-4 flex items-center justify-between">
-        <span className="text-sm font-semibold">Inbox, sorted</span>
-        <span className="text-xs text-ink-faint">GPT-4o</span>
+        <span className="text-sm font-semibold">{done ? "Saved" : "Listening"}</span>
+        <span className="text-xs text-ink-faint">Hinglish</span>
       </div>
-      <ul className="divide-y divide-rule rounded-xl border border-rule">
-        {chats.map((c, i) => (
+
+      <div className="flex items-center gap-3 rounded-xl bg-ink/[0.05] px-4 py-3">
+        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent text-paper">
+          <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+            <rect x="5.5" y="1.5" width="5" height="8.5" rx="2.5" />
+            <path d="M3 7.5a5 5 0 0 0 10 0M8 12.5v2" />
+          </svg>
+        </span>
+        <span className="flex h-7 flex-1 items-center gap-[3px]" aria-hidden="true">
+          {bars.map((h, i) => (
+            <motion.span
+              key={i}
+              className="w-[3px] flex-1 rounded-full bg-accent/70"
+              initial={{ scaleY: h }}
+              animate={!reduce && inView && !done ? { scaleY: [h, 1 - h * 0.6, h] } : { scaleY: done ? 0.15 : h }}
+              transition={done ? { duration: 0.3 } : { duration: 0.6 + (i % 4) * 0.12, repeat: Infinity, ease: "easeInOut" }}
+              style={{ height: "100%", originY: 0.5 }}
+            />
+          ))}
+        </span>
+      </div>
+
+      <p className="mt-4 min-h-[2.8em] text-sm leading-snug text-ink-soft">
+        "{said.slice(0, shown)}
+        {!done ? <span className="ml-0.5 inline-block h-[1em] w-[2px] translate-y-[2px] animate-pulse bg-accent" /> : '"'}
+      </p>
+
+      <ul className="mt-4 divide-y divide-rule rounded-xl border border-rule">
+        {tasks.map((t, i) => (
           <motion.li
-            key={c.from}
+            key={t.title}
             initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 + i * 0.12, ease }}
-            className="flex items-center justify-between gap-3 px-3.5 py-3 text-sm"
+            animate={done ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+            transition={{ duration: 0.5, delay: i * 0.15, ease }}
+            className="px-3.5 py-3 text-sm"
           >
-            <span className="min-w-0">
-              <span className="block font-medium">{c.from}</span>
-              <span className="block truncate text-ink-faint">{c.text}</span>
+            <span className="flex items-center justify-between gap-3">
+              <span className="font-medium">{t.title}</span>
+              <span className="tabular shrink-0 text-xs text-ink-faint">{t.time}</span>
             </span>
-            <span
-              className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                c.strong ? "bg-accent text-paper" : "bg-ink/[0.06] text-ink-soft"
-              }`}
-            >
-              {c.tag}
-            </span>
+            <span className={`mt-0.5 block text-xs ${i === 1 ? "text-accent" : "text-ink-faint"}`}>{t.note}</span>
           </motion.li>
         ))}
       </ul>
-      <div className="mt-4 rounded-xl bg-ink/[0.05] px-4 py-3 text-sm">
-        <p className="text-xs text-ink-faint">Suggested reply to Aman</p>
-        <p className="mt-1 min-h-[2.8em] leading-snug">
-          {reply.slice(0, shown)}
-          {shown < reply.length && <span className="ml-0.5 inline-block h-[1em] w-[2px] translate-y-[2px] animate-pulse bg-accent" />}
-        </p>
+    </div>
+  );
+}
+
+/** A two-pulley belt drive that turns with scroll, echoing the Golden Machinery hero. */
+function PulleyMock() {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const big = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  // the small pulley is ~half the diameter, so it turns twice as fast
+  const small = useTransform(scrollYProgress, [0, 1], [0, 720]);
+
+  const spokes = (n: number, r: number) =>
+    Array.from({ length: n }, (_, i) => {
+      const a = (i / n) * Math.PI * 2;
+      return <line key={i} x1={0} y1={0} x2={Math.cos(a) * r} y2={Math.sin(a) * r} />;
+    });
+
+  const products = ["V-Belt", "Crown Patta", "Split", "Step", "Couplings"];
+
+  return (
+    <div ref={ref} className="rounded-2xl border border-rule bg-paper p-5 shadow-[0_30px_60px_-30px_rgb(var(--ink)/0.4)] sm:p-6">
+      <div className="mb-5 flex items-center justify-between">
+        <div className="flex gap-1.5" aria-hidden="true">
+          <span className="h-2.5 w-2.5 rounded-full bg-ink/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-ink/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-ink/15" />
+        </div>
+        <span className="text-xs text-ink-faint">goldenpulley.com</span>
+      </div>
+
+      <p className="text-sm text-ink-soft">Power transmission, Agra</p>
+      <p className="mt-1 font-display text-[clamp(1.6rem,3.2vw,2.2rem)] font-medium leading-tight">Machinery works on our hand.</p>
+
+      <svg viewBox="0 0 320 150" className="mt-5 w-full text-ink" aria-hidden="true">
+        <g fill="none" stroke="currentColor" strokeOpacity="0.25" strokeWidth="6" strokeLinecap="round">
+          <line x1="90" y1="18" x2="236" y2="47" />
+          <line x1="90" y1="132" x2="236" y2="103" />
+        </g>
+        <g transform="translate(90 75)">
+          <motion.g style={reduce ? undefined : { rotate: big }}>
+            <circle r="56" fill="rgb(var(--surface))" stroke="currentColor" strokeOpacity="0.5" strokeWidth="3" />
+            <circle r="46" fill="none" stroke="currentColor" strokeOpacity="0.2" strokeWidth="1.5" />
+            <g stroke="currentColor" strokeOpacity="0.45" strokeWidth="5" strokeLinecap="round">{spokes(6, 44)}</g>
+            <circle r="12" className="fill-accent" />
+          </motion.g>
+        </g>
+        <g transform="translate(236 75)">
+          <motion.g style={reduce ? undefined : { rotate: small }}>
+            <circle r="28" fill="rgb(var(--surface))" stroke="currentColor" strokeOpacity="0.5" strokeWidth="3" />
+            <circle r="22" fill="none" stroke="currentColor" strokeOpacity="0.2" strokeWidth="1.5" />
+            <circle r="16" fill="none" stroke="currentColor" strokeOpacity="0.2" strokeWidth="1.5" />
+            <g stroke="currentColor" strokeOpacity="0.45" strokeWidth="3" strokeLinecap="round">{spokes(4, 20)}</g>
+            <circle r="7" className="fill-accent" />
+          </motion.g>
+        </g>
+      </svg>
+
+      <ul className="mt-5 flex flex-wrap gap-1.5 text-xs">
+        {products.map((p, i) => (
+          <li
+            key={p}
+            className={`rounded-full px-2.5 py-1 font-medium ${i === 0 ? "bg-accent text-paper" : "bg-ink/[0.06] text-ink-soft"}`}
+          >
+            {p}
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-5 flex items-center justify-between rounded-xl bg-ink/[0.05] px-4 py-3 text-sm">
+        <span className="text-ink-soft">Product catalogue (PDF)</span>
+        <span className="font-medium text-accent">Enquire to download</span>
       </div>
     </div>
   );
 }
 
+const mocks = { valuation: ValuationMock, voice: VoiceMock, pulley: PulleyMock };
+
 function ProjectCard({ project }: { project: Project }) {
+  const Mock = mocks[project.mock];
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "start 0.25"] });
@@ -212,10 +303,24 @@ function ProjectCard({ project }: { project: Project }) {
               </li>
             ))}
           </ul>
+
+          {project.url && (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-8 inline-flex w-fit items-center gap-2 rounded-full border border-ink/20 px-5 py-2.5 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+            >
+              Visit {new URL(project.url).hostname.replace(/^www\./, "")}
+              <svg viewBox="0 0 12 12" className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+                <path d="M3.5 8.5 8.5 3.5M4.5 3.5h4v4" />
+              </svg>
+            </a>
+          )}
         </div>
 
         <motion.div style={reduce ? undefined : { y: mockY }} className="self-center">
-          {project.mock === "valuation" ? <ValuationMock /> : <TriageMock />}
+          <Mock />
         </motion.div>
       </div>
     </motion.article>
